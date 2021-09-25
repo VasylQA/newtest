@@ -1,0 +1,34 @@
+# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
+version: 2
+jobs:
+  build:
+    docker:
+      - image: mcr.microsoft.com/playwright:focal
+    steps:
+      - checkout
+
+      - run:
+          name: "Install dependencies"
+          command: npm install
+
+      - run:
+          name: "Run UI tests"
+          command: npm run test:ui
+
+      - run:
+          name: "Run API test 1"
+          command: npx jest case3.js
+
+      - run:
+          name: "Run API test 2"
+          command: npx jest case4.js
+
+          #             # Start local server
+          #             npm run start &
+          #             npx wait-on http://localhost:3000
+          #             replace below with command you want to run, example for running a script below
+
+
+          # This is the node version to use for the `cimg/node` tag
+          # Relevant tags can be found on the CircleCI Developer Hub
+          # https://circleci.com/developer/images/image/cimg/node
