@@ -13,7 +13,7 @@ jobs:
 
       - run:
           name: "Run UI tests"
-          command: npm run test:ui
+          command: npx playwright test
 
       - run:
           name: "Run API test 1"
