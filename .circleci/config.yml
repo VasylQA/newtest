@@ -24,15 +24,16 @@ jobs:
           command: npx jest case4.js
 
       - run:
-          name: "Generate code coverage"
-          command: './node_modules/.bin/nyc report --reporter=text-lcov'
-            # You can specify either a single file or a directory to store as artifacts
+          name: Save test results
+          command: |
+            mkdir -p ~/test-results/junit/
+            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
+          when: always
+            - store_test_results:
+                path: ~/test-results
             - store_artifacts:
-                path: test-results.xml
-                destination: deliverable.xml
-            - store_artifacts:
-                path: coverage
-                destination: coverage
+                path: ~/test-results/junit
+
 
           #             # Start local server
           #             npm run start &
