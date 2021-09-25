@@ -1,0 +1,3 @@
+case 1 - npx playwright test case1 --headed
+case 2 - npx playwright test case2 --headed
+
