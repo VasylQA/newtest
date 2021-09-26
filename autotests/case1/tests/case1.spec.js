@@ -4,7 +4,7 @@ const { fillLogIn, userDetails } = require("../tests/Helpers")
 
 test('Should navigate to Home page', async ({ page }) => {
     await page.goto('http://automationpractice.com/index.php');
-    await page.waitForSelector(HOME_BANNER);
+    await page.waitForSelector(HOME_BANNERi);
     await page.click(BUTTONS.SIGN_IN);
     await fillLogIn(page, userDetails);
     await page.click(BUTTONS.SUBMIT_LOGIN);
