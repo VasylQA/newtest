@@ -24,14 +24,26 @@ jobs:
           command: npx jest case4.js
 
       - run:
-          name: "Save artifacts"
+          name: Creating Dummy Artifacts
           command: |
-            mkdir -p ~/test-results/junit/
-            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \
-      - store_test_results:
-          path: ~/test-results
+            echo "my artifact file" > /tmp/art-1;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/art-2;
       - store_artifacts:
-          path: ~/test-results/junit
+          path: /tmp/art-1
+          destination: artifact-file
+      - store_artifacts:
+          path: /tmp/artifacts
+
+#      - run:
+#          name: "Save artifacts"
+#          command: |
+#            mkdir -p ~/test-results/junit/
+#            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \
+#      - store_test_results:
+#          path: ~/test-results
+#      - store_artifacts:
+#          path: ~/test-results/junit
 
 
           #             # Start local server
