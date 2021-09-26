@@ -19,7 +19,7 @@ jobs:
           name: "Run API test 2"
           command: npx jest case4.js
       - run:
-          name: "Save test results"
+          name: "Run API test 2"
           command: |
             mkdir -p ~/test-results/junit/
             find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \
