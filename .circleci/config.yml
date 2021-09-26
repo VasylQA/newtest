@@ -26,9 +26,9 @@ jobs:
       - run:
           name: Creating Artifacts
           command: |
-            echo "my artifact files in a dir" > ./test-results;
+            echo "my artifact files in a dir" > ./newtest/test-results;
       - store_artifacts:
-          path: ./test-results
+          path: ./newtest/test-results
 
           #      - store_artifacts:
           #          path: /tmp/art-1
