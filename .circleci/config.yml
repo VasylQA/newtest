@@ -28,7 +28,7 @@ jobs:
           command: |
             echo "my artifact files in a dir" > /newtest/test-results;
       - store_artifacts:
-          path: /newtest/test-results
+          path: ./test-results
 
           #      - store_artifacts:
           #          path: /tmp/art-1
