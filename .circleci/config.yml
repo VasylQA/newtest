@@ -6,23 +6,18 @@ jobs:
       - image: mcr.microsoft.com/playwright:focal
     steps:
       - checkout
-
       - run:
           name: "Install dependencies"
           command: npm install
-
       - run:
           name: "Run UI tests"
           command: npx playwright test
-
       - run:
           name: "Run API test 1"
           command: npx jest case3.js
-
       - run:
           name: "Run API test 2"
           command: npx jest case4.js
-
       - run:
           name: "Save test results"
           command: |
