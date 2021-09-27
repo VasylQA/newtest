@@ -23,14 +23,14 @@ jobs:
           name: "Run API test 2"
           command: npx jest case4.js
 
-      - run:
-          command: ls
+   #   - run:
+   #       command: ls
 
+     # - store_artifacts:
+      #    path: /test-results/art-1
+     #     destination: artifact-file
       - store_artifacts:
-          path: /test-results/art-1
-          destination: artifact-file
-      - store_artifacts:
-                path: /test-results/artifacts
+          path: ./test-results
 
           #      - store_artifacts:
           #          path: /tmp/art-1
